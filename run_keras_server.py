@@ -82,5 +82,5 @@ if __name__ == "__main__":
     print(("* Loading Keras model and Flask starting server..."
         "please wait until server has fully started"))
     load_model()
-    port = os.getenv('PATH', 5000)
+    port = os.getenv('PORT', 5000)
     app.run()
