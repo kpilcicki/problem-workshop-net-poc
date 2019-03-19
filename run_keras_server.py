@@ -59,7 +59,6 @@ def predict():
             # classify the input image and then initialize the list
             # of predictions to return to the client
             with graph.as_default():
-
                 preds = model.predict(image)
                 results = imagenet_utils.decode_predictions(preds)
                 data["predictions"] = []
@@ -75,6 +74,12 @@ def predict():
 
                 # return the data dictionary as a JSON response
                 return flask.jsonify(data)
+        else:
+            data['error'] = 'no image'
+    else:
+        data['error'] = 'unsupported method'
+    return flask.jsonify(data)
+            
 
 # if this is the main thread of execution first load the model and
 # then start the server
