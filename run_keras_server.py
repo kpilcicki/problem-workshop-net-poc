@@ -7,6 +7,7 @@ from PIL import Image
 import numpy as np
 import flask
 import io
+import os
 
 print(ResNet50)
 
@@ -81,4 +82,5 @@ if __name__ == "__main__":
     print(("* Loading Keras model and Flask starting server..."
         "please wait until server has fully started"))
     load_model()
+    port = os.getenv('PATH', 5000)
     app.run()
