@@ -3,10 +3,10 @@ import tf_utils as tfu
 
 def get_response(predictions):
     votesForInTram = sum(predictions)
-    isIntram = votesForInTram > len(predictions) * 0.5
+    isIntram = votesForInTram > (len(predictions) * 0.5)
     certainty = votesForInTram / len(predictions)
     return {
-        'isInTram': isIntram,
+        'isInTram': True if isIntram else False,
         'certainty': certainty if isIntram else 1 - certainty,
     }
 
@@ -26,6 +26,7 @@ def predict_with(selected_predictor):
                 preds.append(inTramScore)
 
             data = get_response(preds)
+            print(data)
             return flask.jsonify(data)
         else:
             data['error'] = 'no json'
