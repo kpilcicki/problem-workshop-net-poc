@@ -13,7 +13,7 @@ import tf_utils as tfu
 from predict import predict_with
 
 FULL_MODEL_DIR = 'adagrad-dnn-40'
-ADAM_MODEL_DIR = 'adagrad-dnn-40'
+ADAM_MODEL_DIR = 'adam-dnn-40'
 
 # initialize our Flask application and the Keras model
 app = flask.Flask(__name__)
